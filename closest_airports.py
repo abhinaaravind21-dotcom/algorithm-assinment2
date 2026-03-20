@@ -25,7 +25,7 @@ def haversine(a1, a2):
     return 2 * R * math.asin(math.sqrt(h))
 
 
-# Brute force
+# Brute force method
 def brute_force(points):
     min_dist = float('inf')
     pair = None
@@ -42,7 +42,7 @@ def brute_force(points):
     return min_dist, pair, distances
 
 
-# Strip check
+# Strip closest
 def strip_closest(strip, d):
     min_dist = d
     pair = None
@@ -62,7 +62,7 @@ def strip_closest(strip, d):
     return min_dist, pair
 
 
-# Divide and Conquer utility
+# Divide and conquer utility
 def closest_util(points):
     if len(points) <= 3:
         min_dist, pair, _ = brute_force(points)
@@ -90,6 +90,7 @@ def closest_util(points):
     return d, pair
 
 
+# Main function
 def closest_pair(airports):
     points = sorted(airports, key=lambda x: x.lon)
     return closest_util(points)
@@ -105,32 +106,44 @@ airports = [
     Airport("Hyderabad", 17.2403, 78.4294)
 ]
 
+
 # Execution
 start = time.time()
+
 min_dist, pair = closest_pair(airports)
 _, _, all_distances = brute_force(airports)
+
 end = time.time()
+
 
 # Output formatting
 output = []
 
 output.append("AIRPORT LIST:\n")
 for a in airports:
-    output.append(f"{a.name}: ({a.lat}, {a.lon})\n")
+    output.append(f"{a.name}: ({a.lat}, {a.lon})")
 
-output.append("\nDISTANCES:\n")
+output.append("\nDISTANCES:")
 for d in all_distances:
-    output.append(f"{d[0]} - {d[1]} = {d[2]:.2f} km\n")
+    output.append(f"{d[0]} - {d[1]} = {d[2]:.2f} km")
 
-output.append("\nCLOSEST PAIR:\n")
-output.append(f"{pair[0].name} and {pair[1].name}\n")
-output.append(f"Minimum Distance = {min_dist:.2f} km\n")
-output.append("\nTIME COMPLEXITY: O(n log n)\n")
-output.append(f"Execution Time: {end - start:.6f} seconds\n")
+output.append("\nCLOSEST PAIR:")
+output.append(f"{pair[0].name} and {pair[1].name}")
+output.append(f"Minimum Distance = {min_dist:.2f} km")
+
+output.append("\nTIME COMPLEXITY:")
+output.append("O(n log n)")
+output.append(f"\nExecution Time: {end - start:.6f} seconds")
+
+
+# Print output
+for line in output:
+    print(line)
+
 
 # Save to file
 with open("closest_airports_output.txt", "w") as f:
-    f.writelines(output)
+    for line in output:
+        f.write(line + "\n")
 
-# Print output
-print("".join(output))
+print("\nOutput saved to 'closest_airports_output.txt'")
