@@ -1,0 +1,37 @@
+AIRPORT LIST:
+
+Delhi: (28.5562, 77.1)
+Mumbai: (19.0896, 72.8656)
+Chennai: (12.9941, 80.1709)
+Bangalore: (13.1986, 77.7066)
+Kochi: (10.152, 76.4019)
+Hyderabad: (17.2403, 78.4294)
+
+DISTANCES:
+
+Delhi - Mumbai = 1137.05 km
+Delhi - Chennai = 1759.38 km
+Delhi - Bangalore = 1708.84 km
+Delhi - Kochi = 2047.75 km
+Delhi - Hyderabad = 1265.58 km
+Mumbai - Chennai = 1033.48 km
+Mumbai - Bangalore = 834.35 km
+Mumbai - Kochi = 1063.99 km
+Mumbai - Hyderabad = 622.71 km
+Chennai - Bangalore = 267.86 km
+Chennai - Kochi = 518.08 km
+Chennai - Hyderabad = 507.80 km
+Bangalore - Kochi = 367.35 km
+Bangalore - Hyderabad = 456.06 km
+Kochi - Hyderabad = 818.01 km
+
+CLOSEST PAIR:
+
+Bangalore and Chennai
+Minimum Distance = 267.86 km
+
+TIME COMPLEXITY:
+
+O(n log n)
+
+Execution Time: 0.022000 seconds
